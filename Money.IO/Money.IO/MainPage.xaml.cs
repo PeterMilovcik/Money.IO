@@ -12,6 +12,7 @@ namespace Money.IO
 		public MainPage()
 		{
 			InitializeComponent();
+            BindingContext = new MainPageViewModel(Navigation);
 		}
 	}
 }

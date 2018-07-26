@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Money.IO.IncomePage"
+             Title="Income">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry
+                x:Name="Entry"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontSize="48"
+                HorizontalTextAlignment="Center"
+                Keyboard="Numeric" 
+                TextColor="DarkGreen"
+                Completed="OnCompleted"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
