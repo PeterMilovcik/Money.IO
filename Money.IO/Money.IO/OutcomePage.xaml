@@ -14,7 +14,8 @@
                 HorizontalTextAlignment="Center"
                 Keyboard="Numeric" 
                 TextColor="DarkRed"
-                Completed="OnCompleted"/>
+                Completed="OnCompleted"
+                Text="{Binding Value}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

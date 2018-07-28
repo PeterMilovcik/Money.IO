@@ -7,12 +7,12 @@ namespace Money.IO
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class IncomePage : ContentPage
 	{
-	    private IncomePageViewModel ViewModel { get; }
+	    private IncomeViewModel ViewModel { get; }
 
-	    public IncomePage ()
+	    public IncomePage(Repository repository)
 		{
 			InitializeComponent ();
-		    ViewModel = new IncomePageViewModel(Navigation);
+		    ViewModel = new IncomeViewModel(Navigation, repository);
 		    BindingContext = ViewModel;
 		}
 

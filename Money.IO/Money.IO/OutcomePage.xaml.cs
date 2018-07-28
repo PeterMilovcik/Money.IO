@@ -7,12 +7,12 @@ namespace Money.IO
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class OutcomePage : ContentPage
 	{
-	    private OutcomePageViewModel ViewModel { get; }
+	    private OutcomeViewModel ViewModel { get; }
 
-	    public OutcomePage ()
+	    public OutcomePage(Repository repository)
 		{
 			InitializeComponent ();
-		    ViewModel = new OutcomePageViewModel(Navigation);
+		    ViewModel = new OutcomeViewModel(Navigation, repository);
 		    BindingContext = ViewModel;
 		}
 

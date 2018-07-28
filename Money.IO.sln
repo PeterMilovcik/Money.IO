@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.IO.Android", "Money.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.IO.iOS", "Money.IO\Money.IO.iOS\Money.IO.iOS.csproj", "{C5635226-0C60-403C-9EB9-0E67377CAAF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.IO", "Money.IO\Money.IO\Money.IO.csproj", "{541F2A96-AA8B-4E84-923A-8EE4014E8B7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.IO", "Money.IO\Money.IO\Money.IO.csproj", "{541F2A96-AA8B-4E84-923A-8EE4014E8B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

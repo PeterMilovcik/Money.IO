@@ -13,15 +13,15 @@ namespace Money.IO
         {
             fileName = Path.Combine(
                 Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData), "data.xml");
+                    Environment.SpecialFolder.LocalApplicationData), "records.xml");
         }
 
-        public Data Load()
+        public Records Load()
         {
             if (File.Exists(fileName))
             {
                 var document = XDocument.Load(fileName);
-                var data = new Data();
+                var data = new Records();
                 var records = document.Root.Elements("record");
                 foreach (var element in records)
                 {
@@ -32,13 +32,13 @@ namespace Money.IO
                 }
                 return data;
             }
-            return new Data();
+            return new Records();
         }
 
-        public void Save(Data data)
+        public void Save(Records records)
         {
             var document = new XDocument(new XElement("records"));
-            foreach (Record record in data.Records)
+            foreach (var record in records)
             {
                 document?.Root?.Add(
                     new XElement("record",
@@ -46,6 +46,12 @@ namespace Money.IO
                         new XAttribute("amount", record.Amount)));
             }
             document.Save(fileName);
+            OnSaved();
         }
+
+        public event EventHandler Saved;
+
+        protected virtual void OnSaved() => 
+            Saved?.Invoke(this, EventArgs.Empty);
     }
 }

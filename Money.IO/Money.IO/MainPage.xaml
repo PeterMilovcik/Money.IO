@@ -9,6 +9,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -18,13 +19,19 @@
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
             FontSize="48"
-            Text="{Binding Money, Mode=TwoWay}"/>
+            Text="{Binding Sum, Mode=TwoWay, StringFormat='{0:N2}'}"/>
+        <Label
+            Grid.Row="2"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            FontSize="28"
+            Text="{Binding Rate, Mode=TwoWay, StringFormat='{0:N4}'}"/>
         <Button
-            Grid.Row="3"
+            Grid.Row="4"
             Text="Income"
             Command="{Binding IncomeCommand}"/>
         <Button
-            Grid.Row="4"
+            Grid.Row="5"
             Text="Outcome"
             Command="{Binding OutcomeCommand}"/>
     </Grid>
