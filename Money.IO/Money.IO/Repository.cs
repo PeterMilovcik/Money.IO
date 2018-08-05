@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Money.IO
 {
-    public class Repository
+    public sealed class Repository
     {
         private readonly string fileName;
 
@@ -25,10 +25,14 @@ namespace Money.IO
                 var records = document.Root.Elements("record");
                 foreach (var element in records)
                 {
-                    var dateTime = DateTime.Parse(element.Attribute("datetime").Value);
-                    var amount = float.Parse(element.Attribute("amount").Value);
-                    var record = new Record(dateTime, amount);
-                    data.Add(record);
+                    data.Add(
+                        new Record(
+                            DateTime.Parse(
+                                element.Attribute("datetime").Value,
+                                CultureInfo.InvariantCulture),
+                            float.Parse(
+                                element.Attribute("amount").Value,
+                                CultureInfo.InvariantCulture)));
                 }
                 return data;
             }
@@ -40,10 +44,12 @@ namespace Money.IO
             var document = new XDocument(new XElement("records"));
             foreach (var record in records)
             {
-                document?.Root?.Add(
+                var dateTime = record.DateTime.ToString(CultureInfo.InvariantCulture);
+                var amount = record.Amount.ToString(CultureInfo.InvariantCulture);
+                document.Root?.Add(
                     new XElement("record",
-                        new XAttribute("datetime", record.DateTime.ToString(CultureInfo.InvariantCulture)),
-                        new XAttribute("amount", record.Amount)));
+                        new XAttribute("datetime", dateTime),
+                        new XAttribute("amount", amount)));
             }
             document.Save(fileName);
             OnSaved();
@@ -51,7 +57,7 @@ namespace Money.IO
 
         public event EventHandler Saved;
 
-        protected virtual void OnSaved() => 
+        private void OnSaved() => 
             Saved?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -19,13 +19,13 @@
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
             FontSize="48"
-            Text="{Binding Sum, Mode=TwoWay, StringFormat='{0:N2}'}"/>
+            Text="{Binding Sum, Mode=TwoWay, StringFormat='{0:F2}'}"/>
         <Label
             Grid.Row="2"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
             FontSize="28"
-            Text="{Binding Rate, Mode=TwoWay, StringFormat='{0:N4}'}"/>
+            Text="{Binding Rate, Mode=TwoWay, StringFormat='{0:F4}'}"/>
         <Button
             Grid.Row="4"
             Text="Income"
