@@ -7,32 +7,34 @@
     Title="Money.IO">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="15*" />
         </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="EndAndExpand"
+            FontSize="52"
+            Text="{Binding Sum, Mode=TwoWay, StringFormat='{0:F2}'}"/>
         <Label
             Grid.Row="1"
             HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
-            FontSize="48"
-            Text="{Binding Sum, Mode=TwoWay, StringFormat='{0:F2}'}"/>
-        <Label
-            Grid.Row="2"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand"
-            FontSize="28"
-            Text="{Binding Rate, Mode=TwoWay, StringFormat='{0:F4}'}"/>
+            VerticalOptions="StartAndExpand"
+            FontSize="30"
+            Text="{Binding Rate, Mode=TwoWay, StringFormat='{0:F6}'}"/>
         <Button
-            Grid.Row="4"
+            Grid.Row="2"
             Text="Income"
+            FontSize="24"
+            BackgroundColor="DarkSeaGreen"
             Command="{Binding IncomeCommand}"/>
         <Button
-            Grid.Row="5"
+            Grid.Row="3"
             Text="Outcome"
+            FontSize="24"
+            BackgroundColor="PaleVioletRed"
             Command="{Binding OutcomeCommand}"/>
     </Grid>
 
